@@ -134,6 +134,8 @@ cat3.products.create!({
 
 # User
 
+User.destroy_all
+
 usr1 = User.create!({
   first_name: 'Denny',
   last_name: 'Hollick',
@@ -142,6 +144,8 @@ usr1 = User.create!({
 })
 
 # Reviews
+
+Review.destroy_all
 
 usr1.reviews.create!({
   product_id: 1, 
