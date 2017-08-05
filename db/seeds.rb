@@ -132,5 +132,26 @@ cat3.products.create!({
   price: 2_483.75
 })
 
+# User
+
+usr1 = User.create!({
+  first_name: 'Denny',
+  last_name: 'Hollick',
+  email: 'dennyhollick@gmail.com',
+  password_digest: "$2a$10$Yn0K/25Jkd2L.P6QG5oT0edLMvWMNCexuaUL/liNUFuqX5bRb7Fya",
+})
+
+# Reviews
+
+usr1.reviews.create!({
+  product_id: 1, 
+  rating: 10, 
+  description: "Best thing ever."
+}) 
+
+usr1.reviews.create!({
+  product_id: 4, 
+  rating: 6, 
+}) 
 
 puts "DONE!"
