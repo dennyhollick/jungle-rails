@@ -25,14 +25,39 @@
         </dl>
         <hr>
         <h3>Customer Reviews</h3>
+        <% if @user %>
+            <%= form_for [@product, @review] do |f| %>
+            <div class="field">
+              <%= f.label :rating %>
+              <%= f.select :rating, (1..10), id: :product_rating %>
+            </div>
+
+            <div class="field">
+              <%= f.label :description %>
+              <%= f.text_field :description, id: :product_description %>
+            </div>
+
+            <%= f.hidden_field :user_id, :value => @user.id %>
+            <%= f.hidden_field :product_id, :value => @product.id %>
+
+            <div class="actions">
+              <%= f.submit 'Create Review', class: 'btn btn-primary' %>
+            </div>
+          <% end %>
+        <% else %>
+        <h4><%= link_to 'Login', '/login' %> to leave a review</h4>
+        <% end %>
+
         <dl class="dl-horizontal">
-          <% @product.reviews.each do | review | %>
-            <%= render 'reviews', review: review %>
+          <% @product.reviews.reverse_each do | reviews | %>
+            <%= render 'reviews', review: reviews %>
           <% end %>
         </dl>
+
       </div>
     </div>
 
   </article>
 
 </section>
+
