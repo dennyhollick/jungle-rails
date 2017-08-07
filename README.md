@@ -2,6 +2,8 @@
 
 A mini e-commerce application built with Rails 4.2 for purposes of teaching Rails by example.
 
+This is a practice app for my Lighthouse Labs project, working with rails. 
+
 
 ## Setup
 
