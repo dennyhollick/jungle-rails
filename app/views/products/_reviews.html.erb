@@ -1,3 +1,7 @@
- <dt><%= review.user.first_name %> <%= review.user.last_name %> || <%= review.rating %>/10 </dt>
- <dd><%= review.description %></dd>
-
+ <dt>
+ <% if review.user.id == session[:user_id] %>
+ <%= link_to fa_icon('trash'), product_reviews_path(:review_id => review.id, :product_id => @product.id), class: 'btn btn-sm btn-danger', method: :delete, data: { confirm: "Are you sure?" } %> 
+ <% end %>
+ <%= review.user.first_name %> <%= review.user.last_name %>
+ </dt>
+ <dd><strong><%= review.rating %>/10</strong> <%= review.description %> </dd>
