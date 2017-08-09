@@ -15,7 +15,7 @@ RSpec.feature "Visitor adds something to their cart", type: :feature, js: true d
     )
   end
 
-  scenario "They see the details of the product" do
+  scenario "They see the cart items change" do
     # ACT
     visit root_path
     first('article.product').first('a.btn.btn-primary').click
